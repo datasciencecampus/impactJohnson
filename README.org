@@ -1,0 +1,29 @@
+#+TITLE: Impact Johnson
+
+Just a bit of fun. Some really basic analysis of tweets.
+The code is a mess, its not even remotely optimised and it could be a little
+bit cleverer, but it does what I intended it to given the 20 minutes I spent on
+it.
+
+
+[[./impact.jpeg]]
+*Note*: this is Impact Johnson.
+
+
+* Usage
+
+Edit ~scraper.py~ so that the function runs on the account you want it to.
+
+Then
+#+BEGIN_EXAMPLE sh
+python scraper.py
+ghc -o impactJohnson Main.hs
+. impactJohnson
+#+END_EXAMPLE
+
+
+* Caveats
+
+I did not write the scraper, that comes from
+[[https://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/]
+[here]].
