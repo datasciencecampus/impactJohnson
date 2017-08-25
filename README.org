@@ -5,8 +5,9 @@ The code is a mess, its not even remotely optimised and it could be a little
 bit cleverer, but it does what I intended it to given the 20 minutes I spent on
 it.
 
-
+#+BEGIN_CENTER
 [[./impact.jpeg]]
+#+END_CENTER
 
 *Note*: this is Impact Johnson.
 
