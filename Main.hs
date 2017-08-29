@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns #-}
 module Main where
 {-
 Just having some fun seeing what Dave's "most powerful" words are on twitter
@@ -22,7 +23,7 @@ import           Text.Printf
 readTwitter :: Int -> IO [String]
 readTwitter num = do
   let filename = printf "./data/tweet%04d.txt" num :: String
-  filecontents <- readFile filename
+  !filecontents <- readFile filename
   return (lines filecontents)
 
 
@@ -37,7 +38,7 @@ ngrams listwords n = L.map (\index -> unwords (subseq index n listwords))
                            [0..(length listwords - n)]
 
 
-wordify :: [Char] -> [String]
+wordify :: String -> [String]
 wordify l = words $ L.filter (\c -> isAsciiLower c ||
                                     c == ' ' ||
                                     c == '@')
@@ -49,7 +50,7 @@ docToMap :: Int -> Int -> IO (HashMap String Double)
 docToMap doc n = do
   files <- liftM (L.filter (isPrefixOf "tweet")) (getDirectoryContents "./data")
   let lenFiles = genericLength files
-  document <- (L.map readTwitter [0..(lenFiles-1)]) !! doc
+  document <- L.map readTwitter [0.. (lenFiles - 1 )] !! doc
   let content = unwords document
   let myWords = wordify content
   let myng = ngrams myWords n
