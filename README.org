@@ -27,5 +27,4 @@ ghc -o impactJohnson Main.hs
 * Caveats
 
 I did not write the scraper, that comes from
-[[https://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/]
-[here]].
+[[https://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/][here]].
